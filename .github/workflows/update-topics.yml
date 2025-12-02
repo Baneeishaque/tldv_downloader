@@ -1,0 +1,79 @@
+name: Update Repository Topics
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: 'Type "yes" to confirm updating topics'
+        required: true
+        default: 'no'
+
+jobs:
+  update-topics:
+    runs-on: ubuntu-latest
+    if: github.event.inputs.confirm == 'yes'
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Update Repository Topics
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const topics = [
+              'tldv',
+              'video-downloader',
+              'meeting-recorder',
+              'hls-downloader',
+              'm3u8-downloader',
+              'python',
+              'python3',
+              'ffmpeg',
+              'batch-downloader',
+              'video-download',
+              'meeting-recordings',
+              'automation',
+              'parallel-downloads',
+              'cross-platform',
+              'cli-tool',
+              'hls',
+              'm3u8',
+              'windows',
+              'macos',
+              'linux'
+            ];
+            
+            console.log('Updating repository topics...');
+            console.log('Topics to set:', topics.join(', '));
+            
+            try {
+              await github.rest.repos.replaceAllTopics({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                names: topics
+              });
+              
+              console.log('✅ Topics updated successfully!');
+              console.log(`Total topics: ${topics.length}`);
+            } catch (error) {
+              console.error('❌ Failed to update topics:', error.message);
+              throw error;
+            }
+            
+      - name: Verify Topics
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const { data } = await github.rest.repos.getAllTopics({
+              owner: context.repo.owner,
+              repo: context.repo.repo
+            });
+            
+            console.log('Current repository topics:');
+            data.names.forEach((topic, index) => {
+              console.log(`  ${index + 1}. ${topic}`);
+            });
+            console.log(`\nTotal: ${data.names.length} topics`);
