@@ -21,7 +21,7 @@ Based on deep analysis of this repository, the following GitHub topics are recom
 | `python` | Main programming language |
 | `python3` | Python 3.7+ required |
 | `ffmpeg` | Uses FFmpeg for video processing |
-| `n-m3u8dl-re` | Uses N_m3u8DL-RE for downloads |
+| `n-m3u8dl-re` | Uses N_m3u8DL-RE for downloads (optional, may have naming compatibility issues) |
 
 ### Feature-Related Topics
 | Topic | Description |
@@ -46,7 +46,6 @@ Based on deep analysis of this repository, the following GitHub topics are recom
 | `cli-tool` | Command-line interface tool |
 | `hls` | HLS protocol support |
 | `m3u8` | M3U8 playlist support |
-| `requests` | Uses Python requests library |
 
 ## 🎯 Complete List of Recommended Topics
 
@@ -238,8 +237,8 @@ jobs:
 | Technology Stack | 4 |
 | Features | 5 |
 | Platforms | 4 |
-| Additional | 4 |
-| **Total** | **22** |
+| Additional | 3 |
+| **Total** | **21** |
 
 ## ⚠️ Important Notes
 
