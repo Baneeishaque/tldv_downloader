@@ -8,10 +8,16 @@ on:
         required: true
         default: 'no'
 
+# Note: Updating repository topics requires admin access or a PAT with repo scope
+# The default GITHUB_TOKEN may not have sufficient permissions for this operation
+# You may need to use a Personal Access Token stored in secrets
+
 jobs:
   update-topics:
     runs-on: ubuntu-latest
     if: github.event.inputs.confirm == 'yes'
+    permissions:
+      contents: read
     
     steps:
       - name: Checkout repository
