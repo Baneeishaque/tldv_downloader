@@ -224,8 +224,16 @@ This project is for educational purposes. Respect tldv.io's terms of service.
 - This tool is for personal use and backup purposes
 - Large-scale automated downloading may violate terms of service
 
+## 🏷️ GitHub Topics
+
+This repository uses the following GitHub topics for discoverability:
+
+`tldv` `video-downloader` `meeting-recorder` `hls-downloader` `m3u8-downloader` `python` `python3` `ffmpeg` `batch-downloader` `video-download` `meeting-recordings` `automation` `parallel-downloads` `cross-platform` `cli-tool` `hls` `m3u8` `windows` `macos` `linux`
+
+For detailed information about managing these topics, see [GITHUB_TOPICS.md](GITHUB_TOPICS.md).
+
 ---
 
 **Made with ❤️ for the community**
 
-*Last updated: August 2025*
+*Last updated: December 2025*
